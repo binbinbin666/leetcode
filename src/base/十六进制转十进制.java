@@ -1,0 +1,47 @@
+package base;
+
+import java.util.Scanner;
+
+/**  
+    * @Title: 十六进制转十进制.java
+    * @Package base
+    * @Description: TODO(用一句话描述该文件做什么)
+    * @author 陈洪彬
+    * @date 2020年1月13日
+    * @version V1.0  
+    */
+public class 十六进制转十进制 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
+		
+		//方法一
+//		long num = Long.parseLong(input,16);
+//		System.out.println(num);
+		
+		//方法二
+		char[] c = input.toCharArray();
+		long sum = 0;
+		int n = c.length;
+		for (int i = 0; i < n; i++) {
+			if ((int)(c[i])-48 > 9) {
+				if(c[i]=='A')
+                    sum+=10*Math.pow(16,n-i-1);
+                else if(c[i]=='B')
+                    sum+=11*Math.pow(16,n-i-1);
+                else if(c[i]=='C')
+                    sum+=12*Math.pow(16,n-i-1);
+                else if(c[i]=='D')
+                    sum+=13*Math.pow(16,n-i-1);
+                else if(c[i]=='E')
+                    sum+=14*Math.pow(16,n-i-1);
+                else if(c[i]=='F')
+                    sum+=15*Math.pow(16,n-i-1);
+			}else {
+				sum += ((int)(c[i])-48)*Math.pow(16, n-i-1);
+			}
+		}
+		System.out.println(sum);
+	}
+}
