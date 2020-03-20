@@ -28,7 +28,7 @@ public class 快速排序 {
 				break;
 			}
 		}
-		//调用方法进行排序
+		//调用快排进行排序
 		quickSort(0, a.length-1);
 		for (int i = 0; i < a.length; i++) {
 			if (a[i]!=0) {
